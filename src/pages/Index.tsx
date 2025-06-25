@@ -102,7 +102,7 @@ const Index = () => {
         <div className="text-center space-y-4 animate-fade-in">
           <div className="flex items-center justify-center gap-3">
             <Avatar className="h-40 w-40 border-4 border-pink-200 shadow-lg">
-              <AvatarImage src="https://www.google.com/imgres?q=osos%20trabajando&imgurl=https%3A%2F%2Fimg.freepik.com%2Fvector-premium%2Foso-lindo-trabajando-portatil-ilustracion-vectorial-dibujos-animados_295036-2046.jpg&imgrefurl=https%3A%2F%2Fwww.freepik.es%2Fvector-premium%2Foso-lindo-trabajando-portatil-ilustracion-vectorial-dibujos-animados_133936443.htm&docid=zTg_vEvg9P9MmM&tbnid=-628Yxk5XNoDLM&vet=12ahUKEwi0rvXSqY2OAxU3ke4BHYSKAnMQM3oECGwQAA..i&w=626&h=626&hcb=2&ved=2ahUKEwi0rvXSqY2OAxU3ke4BHYSKAnMQM3oECGwQAA" />
+              <AvatarImage src="public/images/corazon.png" />
               <AvatarFallback className="bg-gradient-to-br from-pink-200 to-rose-200 text-pink-700">
                 <Heart className="h-8 w-8" />
               </AvatarFallback>
