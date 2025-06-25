@@ -101,19 +101,19 @@ const Index = () => {
         {/* Header */}
         <div className="text-center space-y-4 animate-fade-in">
           <div className="flex items-center justify-center gap-3">
-            <Avatar className="h-16 w-16 border-4 border-pink-200 shadow-lg">
-              <AvatarImage src="https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=64&h=64&fit=crop&crop=face" />
+            <Avatar className="h-40 w-40 border-4 border-pink-200 shadow-lg">
+              <AvatarImage src="public/images/foto1.jpg" />
               <AvatarFallback className="bg-gradient-to-br from-pink-200 to-rose-200 text-pink-700">
                 <Heart className="h-8 w-8" />
               </AvatarFallback>
             </Avatar>
             <div>
               <h1 className="text-4xl font-bold bg-gradient-to-r from-pink-600 via-rose-600 to-fuchsia-600 bg-clip-text text-transparent">
-                Mi Gestor de Finanzas
+                Gestor de finanzas para Valen 
               </h1>
               <div className="flex items-center justify-center gap-2 mt-2">
                 <Sparkles className="h-5 w-5 text-pink-500 animate-pulse" />
-                <p className="text-gray-600">Controla tus finanzas con estilo</p>
+                <p className="text-gray-600">Pookie Bear edition</p>
                 <Sparkles className="h-5 w-5 text-pink-500 animate-pulse" />
               </div>
             </div>
