@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useFinanceData } from '@/hooks/useFinanceData';
 import { FinanceCard } from '@/components/FinanceCard';
@@ -35,7 +34,7 @@ const Index = () => {
     deleteFixedExpense
   } = useFinanceData();
 
-  const [selectedMonth, setSelectedMonth] = useState(MONTHS[new Date().getMonth()]);
+  const [selectedMonth, setSelectedMonth] = useState<typeof MONTHS[number]>(MONTHS[new Date().getMonth()]);
   const [fixedIncomeForm, setFixedIncomeForm] = useState({ name: '', amount: '', description: '' });
   const [fixedExpenseForm, setFixedExpenseForm] = useState({ name: '', amount: '', description: '' });
 
@@ -109,7 +108,7 @@ const Index = () => {
           <div className="flex items-center gap-2">
             <Calendar className="h-5 w-5 text-gray-600" />
             <Label htmlFor="month-select">Mes actual:</Label>
-            <Select value={selectedMonth} onValueChange={setSelectedMonth}>
+            <Select value={selectedMonth} onValueChange={(value) => setSelectedMonth(value as typeof MONTHS[number])}>
               <SelectTrigger id="month-select" className="w-40">
                 <SelectValue />
               </SelectTrigger>
