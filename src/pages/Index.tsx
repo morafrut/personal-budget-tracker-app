@@ -28,6 +28,7 @@ const Index = () => {
     addExpense,
     addSavingsGoal,
     addMonthlyIncome,
+    deleteMonthlyIncome,
     updateSavingsGoal,
     deleteSavingsGoal,
     deleteExpense,
@@ -493,7 +494,17 @@ const Index = () => {
                           </Badge>
                           <span className="font-medium text-gray-800">{income.description || 'Ingreso'}</span>
                         </div>
+                        <div className='flex items-center gap-3'>
                         <span className="font-bold text-green-600">{formatCurrency(income.amount)}</span>
+                        <Button
+                          onClick={() => deleteMonthlyIncome(income.id)}
+                          variant ="destructive"
+                          size="sm"
+                          className="bg-rose-500 hover:bg-rose-600 shadow-sm"
+                        >
+                          Eliminar
+                          </Button>
+                        </div>
                       </div>
                     ))}
                   </div>

@@ -144,6 +144,7 @@ export const useFinanceData = () => {
     setMonthlyIncomes(updated);
     saveToStorage(STORAGE_KEYS.MONTHLY_INCOMES, updated);
   };
+  
 
   const updateMonthlyIncome = (id: string, income: Partial<MonthlyIncome>) => {
     const updated = monthlyIncomes.map(item => 
