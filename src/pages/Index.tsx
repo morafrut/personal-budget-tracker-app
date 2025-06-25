@@ -102,7 +102,7 @@ const Index = () => {
         <div className="text-center space-y-4 animate-fade-in">
           <div className="flex items-center justify-center gap-3">
             <Avatar className="h-40 w-40 border-4 border-pink-200 shadow-lg">
-              <AvatarImage src="/images/corazon.png" />
+              <AvatarImage src="/images/foto1.jpg" />
               <AvatarFallback className="bg-gradient-to-br from-pink-200 to-rose-200 text-pink-700">
                 <Heart className="h-8 w-8" />
               </AvatarFallback>
