@@ -102,14 +102,14 @@ const Index = () => {
         <div className="text-center space-y-4 animate-fade-in">
           <div className="flex items-center justify-center gap-3">
             <Avatar className="h-40 w-40 border-4 border-pink-200 shadow-lg">
-              <AvatarImage src="public/images/corazon.png" />
+              <AvatarImage src="/images/corazon.png" />
               <AvatarFallback className="bg-gradient-to-br from-pink-200 to-rose-200 text-pink-700">
                 <Heart className="h-8 w-8" />
               </AvatarFallback>
             </Avatar>
             <div>
               <h1 className="text-4xl font-bold bg-gradient-to-r from-pink-600 via-rose-600 to-fuchsia-600 bg-clip-text text-transparent">
-                Gestor de finanzas para Valen :)
+                Gestor de finanzas para Valen 
               </h1>
               <div className="flex items-center justify-center gap-2 mt-2">
                 <Sparkles className="h-5 w-5 text-pink-500 animate-pulse" />
