@@ -4,6 +4,8 @@ import { FinanceCard } from '@/components/FinanceCard';
 import { AddExpenseDialog } from '@/components/AddExpenseDialog';
 import { AddIncomeDialog } from '@/components/AddIncomeDialog';
 import { AddSavingsGoalDialog } from '@/components/AddSavingsGoalDialog';
+import { EditExpenseDialog } from '@/components/EditExpenseDialog';
+import { EditItemDialog } from '@/components/EditItemDialog';
 import { SavingsGoalCard } from '@/components/SavingsGoalCard';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -24,16 +26,20 @@ const Index = () => {
     savingsGoals,
     monthlyIncomes,
     addFixedIncome,
+    updateFixedIncome,
+    deleteFixedIncome,
     addFixedExpense,
+    updateFixedExpense,
+    deleteFixedExpense,
     addExpense,
+    updateExpense,
+    deleteExpense,
     addSavingsGoal,
-    addMonthlyIncome,
-    deleteMonthlyIncome,
     updateSavingsGoal,
     deleteSavingsGoal,
-    deleteExpense,
-    deleteFixedIncome,
-    deleteFixedExpense
+    addMonthlyIncome,
+    updateMonthlyIncome,
+    deleteMonthlyIncome,
   } = useFinanceData();
 
   const [selectedMonth, setSelectedMonth] = useState<typeof MONTHS[number]>(MONTHS[new Date().getMonth()]);
@@ -99,7 +105,24 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-fuchsia-50 p-4">
       <div className="max-w-7xl mx-auto space-y-6">
+
+
+
+
+
+
+
         {/* Header */}
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <div className="text-center space-y-4 animate-fade-in">
           <div className="flex items-center justify-center gap-3">
             <Avatar className="h-40 w-40 border-4 border-pink-200 shadow-lg">
@@ -121,7 +144,25 @@ const Index = () => {
           </div>
         </div>
 
+
+
+
+
+
+
+
         {/* Month selector */}
+
+
+
+
+
+
+
+
+
+
+
         <div className="flex justify-center animate-fade-in">
           <Card className="bg-gradient-to-r from-pink-100 to-rose-100 border-pink-200 shadow-lg">
             <CardContent className="p-4">
@@ -145,7 +186,33 @@ const Index = () => {
           </Card>
         </div>
 
+
+
+
+
+
+
+
+
+
+
+
         {/* Summary Cards */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in">
           <FinanceCard
             title="💰 Ingresos del Mes"
@@ -173,6 +240,25 @@ const Index = () => {
           />
         </div>
 
+
+
+
+
+
+
+
+
+        {/*Ventanas */}
+
+
+
+
+
+
+
+
+
+
         <Tabs defaultValue="dashboard" className="w-full">
           <TabsList className="grid w-full grid-cols-5 bg-gradient-to-r from-pink-100 to-rose-100 border-pink-200 shadow-lg">
             <TabsTrigger value="dashboard" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800">
@@ -195,8 +281,40 @@ const Index = () => {
             </TabsTrigger>
           </TabsList>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {/*Dashboard */}
+
+
+
+
+
+
+
+
+
+
+
+
           <TabsContent value="dashboard" className="space-y-6">
+
+
+
             {/* Monthly expenses by category */}
+            
+            
+            
             <Card className="bg-gradient-to-br from-white to-pink-50 border-pink-200 shadow-lg transform transition-all duration-300 hover:shadow-xl">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-pink-800">
@@ -211,9 +329,7 @@ const Index = () => {
                       <div key={category} className="text-center p-4 bg-gradient-to-br from-rose-50 to-pink-100 rounded-xl border border-rose-200 shadow-md transform transition-all duration-300 hover:scale-105">
                         <div className="text-sm font-medium text-rose-800 mb-1">{category}</div>
                         <div className="text-lg font-bold text-rose-600">{formatCurrency(amount)}</div>
-                        <div className="w-full bg-rose-200 rounded-full h-1 mt-2">
-                          <div className="bg-rose-500 h-1 rounded-full animate-pulse" style={{width: '60%'}}></div>
-                        </div>
+
                       </div>
                     ))}
                   </div>
@@ -226,7 +342,16 @@ const Index = () => {
               </CardContent>
             </Card>
 
+
+            
+
             {/* Recent expenses */}
+            
+            
+            
+            
+            
+            
             <Card className="bg-gradient-to-br from-white to-pink-50 border-pink-200 shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-pink-800">
@@ -275,10 +400,26 @@ const Index = () => {
               </CardContent>
             </Card>
           </TabsContent>
-
+            
+            
+            
+            
+            
+            {/* Fixed*/}
+          
+          
+          
+          
+          
+          
           <TabsContent value="fixed" className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
+
+
               {/* Fixed Incomes */}
+              
+              
+              
               <Card className="bg-gradient-to-br from-white to-pink-50 border-pink-200 shadow-lg">
                 <CardHeader>
                   <CardTitle className="text-green-700 flex items-center gap-2">
@@ -332,6 +473,7 @@ const Index = () => {
                           >
                             Eliminar
                           </Button>
+                          <EditItemDialog item={income} onUpdate={updateFixedIncome} />
                         </div>
                       </div>
                     ))}
@@ -342,7 +484,13 @@ const Index = () => {
                 </CardContent>
               </Card>
 
+
+
               {/* Fixed Expenses */}
+
+
+
+
               <Card className="bg-gradient-to-br from-white to-pink-50 border-pink-200 shadow-lg">
                 <CardHeader>
                   <CardTitle className="text-red-700 flex items-center gap-2">
@@ -396,6 +544,7 @@ const Index = () => {
                           >
                             Eliminar
                           </Button>
+                          <EditItemDialog item={expense} onUpdate={updateFixedExpense} />
                         </div>
                       </div>
                     ))}
@@ -407,6 +556,26 @@ const Index = () => {
               </Card>
             </div>
           </TabsContent>
+
+
+
+
+
+
+
+
+
+          {/* Expenses*/}
+
+
+
+
+
+
+
+
+
+
 
           <TabsContent value="expenses" className="space-y-6">
             <div className="flex justify-between items-center">
@@ -453,6 +622,7 @@ const Index = () => {
                             >
                               Eliminar
                             </Button>
+                            <EditItemDialog item={expense} onUpdate={updateExpense} />
                           </div>
                         </div>
                       ))}
@@ -466,6 +636,21 @@ const Index = () => {
               </CardContent>
             </Card>
           </TabsContent>
+
+
+
+
+
+
+
+          {/* Incomes*/}
+
+
+
+
+
+
+
 
           <TabsContent value="incomes" className="space-y-6">
             <div className="flex justify-between items-center">
@@ -500,10 +685,11 @@ const Index = () => {
                           onClick={() => deleteMonthlyIncome(income.id)}
                           variant ="destructive"
                           size="sm"
-                          className="bg-rose-500 hover:bg-rose-600 shadow-sm"
+                          className="bg-rose-500 hover:bg-rose-400 shadow-sm"
                         >
                           Eliminar
                           </Button>
+                          <EditItemDialog item={income} onUpdate={updateMonthlyIncome} />
                         </div>
                       </div>
                     ))}
@@ -517,6 +703,29 @@ const Index = () => {
               </CardContent>
             </Card>
           </TabsContent>
+
+
+
+
+
+
+
+
+
+
+
+          {/* Savings*/}
+
+
+
+
+
+
+
+
+
+
+
 
           <TabsContent value="savings" className="space-y-6">
             <div className="flex justify-between items-center">

@@ -167,8 +167,6 @@ export const useFinanceData = () => {
     expenses,
     savingsGoals,
     monthlyIncomes,
-    
-    // Actions
     addFixedIncome,
     updateFixedIncome,
     deleteFixedIncome,

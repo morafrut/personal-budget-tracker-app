@@ -1,4 +1,33 @@
+export interface FinancialItemBase {
+  id: string;
+  name: string;
+  amount: number;
+  description?: string;
+  date?: string;
+  month?: string;
+}
 
+// Ingreso fijo
+export interface FixedIncome extends FinancialItemBase {}
+
+// Gasto fijo
+export interface FixedExpense extends FinancialItemBase {}
+
+// Gasto variable
+export interface Expense extends FinancialItemBase {
+  category: string;
+  month: string;
+  date: string;
+}
+
+// Ingreso variable
+export interface MonthlyIncome extends FinancialItemBase {
+  month: string;
+  date: string;
+}
+
+
+/*
 export interface FixedIncome {
   id: string;
   name: string;
@@ -22,13 +51,6 @@ export interface Expense {
   date: string;
 }
 
-export interface SavingsGoal {
-  id: string;
-  name: string;
-  targetAmount: number;
-  currentAmount: number;
-  description?: string;
-}
 
 export interface MonthlyIncome {
   id: string;
@@ -36,7 +58,14 @@ export interface MonthlyIncome {
   amount: number;
   description?: string;
 }
-
+*/
+export interface SavingsGoal {
+  id: string;
+  name: string;
+  targetAmount: number;
+  currentAmount: number;
+  description?: string;
+}
 export const EXPENSE_CATEGORIES = [
   'Alimentación',
   'Transporte',
