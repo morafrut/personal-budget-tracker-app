@@ -20,9 +20,9 @@ export const SavingsGoalCard = ({ goal, onUpdateGoal, onDeleteGoal }: SavingsGoa
   const remaining = goal.targetAmount - goal.currentAmount;
 
   const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('es-ES', {
+    return new Intl.NumberFormat('es-MX', {
       style: 'currency',
-      currency: 'EUR'
+      currency: 'MXN'
     }).format(value);
   };
 
