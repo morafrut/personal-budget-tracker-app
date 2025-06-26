@@ -86,6 +86,26 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Prevent horizontal scroll on mobile */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  /* Ensure mobile viewport is properly handled */
+  @media (max-width: 640px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    /* Prevent text from breaking layout */
+    * {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+  }
 }
 
 /* Custom animations for the finance app */
@@ -158,7 +178,7 @@
 
 /* Pink themed scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -172,4 +192,21 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(219, 39, 119);
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .card-hover:hover {
+    transform: none;
+  }
+  
+  /* Smaller touch targets for mobile */
+  button {
+    min-height: 44px;
+  }
+  
+  /* Better spacing for mobile */
+  .space-y-6 > * + * {
+    margin-top: 1rem;
+  }
 }

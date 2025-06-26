@@ -103,74 +103,39 @@ const Index = () => {
     }, {} as Record<string, number>);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-fuchsia-50 p-4">
-      <div className="max-w-7xl mx-auto space-y-6">
-
-
-
-
-
-
-
-        {/* Header */}
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-fuchsia-50 p-2 sm:p-4">
+      <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6">
+        {/* Header - Responsive */}
         <div className="text-center space-y-4 animate-fade-in">
-          <div className="flex items-center justify-center gap-3">
-            <Avatar className="h-40 w-40 border-4 border-pink-200 shadow-lg">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Avatar className="h-24 w-24 sm:h-40 sm:w-40 border-4 border-pink-200 shadow-lg">
               <AvatarImage src="/images/foto1.jpg" />
               <AvatarFallback className="bg-gradient-to-br from-pink-200 to-rose-200 text-pink-700">
-                <Heart className="h-8 w-8" />
+                <Heart className="h-6 w-6 sm:h-8 sm:w-8" />
               </AvatarFallback>
             </Avatar>
-            <div>
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-pink-600 via-rose-600 to-fuchsia-600 bg-clip-text text-transparent">
+            <div className="text-center sm:text-left">
+              <h1 className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-pink-600 via-rose-600 to-fuchsia-600 bg-clip-text text-transparent">
                 Gestor de finanzas para Valen  
               </h1>
-              <div className="flex items-center justify-center gap-2 mt-2">
-                <Sparkles className="h-5 w-5 text-pink-500 animate-pulse" />
-                <p className="text-gray-600">Pookie Bear edition</p>
-                <Sparkles className="h-5 w-5 text-pink-500 animate-pulse" />
+              <div className="flex items-center justify-center sm:justify-start gap-2 mt-2">
+                <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-pink-500 animate-pulse" />
+                <p className="text-sm sm:text-base text-gray-600">Pookie Bear edition</p>
+                <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-pink-500 animate-pulse" />
               </div>
             </div>
           </div>
         </div>
 
-
-
-
-
-
-
-
-        {/* Month selector */}
-
-
-
-
-
-
-
-
-
-
-
+        {/* Month selector - Responsive */}
         <div className="flex justify-center animate-fade-in">
-          <Card className="bg-gradient-to-r from-pink-100 to-rose-100 border-pink-200 shadow-lg">
-            <CardContent className="p-4">
-              <div className="flex items-center gap-3">
-                <Calendar className="h-6 w-6 text-pink-600" />
-                <Label htmlFor="month-select" className="text-pink-700 font-medium">Mes actual:</Label>
+          <Card className="bg-gradient-to-r from-pink-100 to-rose-100 border-pink-200 shadow-lg w-full max-w-sm">
+            <CardContent className="p-3 sm:p-4">
+              <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
+                <Calendar className="h-5 w-5 sm:h-6 sm:w-6 text-pink-600" />
+                <Label htmlFor="month-select" className="text-pink-700 font-medium text-sm sm:text-base">Mes actual:</Label>
                 <Select value={selectedMonth} onValueChange={(value) => setSelectedMonth(value as typeof MONTHS[number])}>
-                  <SelectTrigger id="month-select" className="w-40 border-pink-200 bg-white/80 backdrop-blur-sm">
+                  <SelectTrigger id="month-select" className="w-full sm:w-40 border-pink-200 bg-white/80 backdrop-blur-sm">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="bg-white/95 backdrop-blur-sm border-pink-200">
@@ -186,34 +151,8 @@ const Index = () => {
           </Card>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-        {/* Summary Cards */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in">
+        {/* Summary Cards - Responsive Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 animate-fade-in">
           <FinanceCard
             title="💰 Ingresos del Mes"
             amount={totalCurrentMonthIncome}
@@ -240,150 +179,94 @@ const Index = () => {
           />
         </div>
 
-
-
-
-
-
-
-
-
-        {/*Ventanas */}
-
-
-
-
-
-
-
-
-
-
+        {/* Tabs - Responsive */}
         <Tabs defaultValue="dashboard" className="w-full">
-          <TabsList className="grid w-full grid-cols-5 bg-gradient-to-r from-pink-100 to-rose-100 border-pink-200 shadow-lg">
-            <TabsTrigger value="dashboard" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800">
-              <TrendingUp className="h-4 w-4 mr-2" />
-              Dashboard
+          <TabsList className="grid w-full grid-cols-3 sm:grid-cols-5 bg-gradient-to-r from-pink-100 to-rose-100 border-pink-200 shadow-lg text-xs sm:text-sm">
+            <TabsTrigger value="dashboard" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800 px-1 sm:px-3">
+              <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
+              <span className="hidden sm:inline">Dashboard</span>
+              <span className="sm:hidden">Dash</span>
             </TabsTrigger>
-            <TabsTrigger value="fixed" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800">
-              <Wallet className="h-4 w-4 mr-2" />
-              Fijos
+            <TabsTrigger value="fixed" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800 px-1 sm:px-3">
+              <Wallet className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
+              <span className="hidden sm:inline">Fijos</span>
+              <span className="sm:hidden">Fijos</span>
             </TabsTrigger>
-            <TabsTrigger value="expenses" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800">
-              💸 Gastos
+            <TabsTrigger value="expenses" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800 px-1 sm:px-3">
+              <span className="hidden sm:inline">💸 Gastos</span>
+              <span className="sm:hidden">💸</span>
             </TabsTrigger>
-            <TabsTrigger value="incomes" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800">
+            <TabsTrigger value="incomes" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800 px-1 sm:px-3 hidden sm:flex">
               💰 Ingresos
             </TabsTrigger>
-            <TabsTrigger value="savings" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800">
+            <TabsTrigger value="savings" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800 px-1 sm:px-3 hidden sm:flex">
               <PiggyBank className="h-4 w-4 mr-2" />
               Ahorros
             </TabsTrigger>
           </TabsList>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            {/*Dashboard */}
-
-
-
-
-
-
-
-
-
-
-
-
-          <TabsContent value="dashboard" className="space-y-6">
-
-
-
-            {/* Monthly expenses by category */}
-            
-            
-            
+          {/* Dashboard Content - Responsive */}
+          <TabsContent value="dashboard" className="space-y-4 sm:space-y-6">
+            {/* Monthly expenses by category - Responsive Grid */}
             <Card className="bg-gradient-to-br from-white to-pink-50 border-pink-200 shadow-lg transform transition-all duration-300 hover:shadow-xl">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-pink-800">
-                  <Sparkles className="h-5 w-5" />
+                <CardTitle className="flex items-center gap-2 text-pink-800 text-lg sm:text-xl">
+                  <Sparkles className="h-4 w-4 sm:h-5 sm:w-5" />
                   Gastos de {selectedMonth} por Categoría
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 {Object.keys(currentMonthExpensesByCategory).length > 0 ? (
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
                     {Object.entries(currentMonthExpensesByCategory).map(([category, amount]) => (
-                      <div key={category} className="text-center p-4 bg-gradient-to-br from-rose-50 to-pink-100 rounded-xl border border-rose-200 shadow-md transform transition-all duration-300 hover:scale-105">
-                        <div className="text-sm font-medium text-rose-800 mb-1">{category}</div>
-                        <div className="text-lg font-bold text-rose-600">{formatCurrency(amount)}</div>
-
+                      <div key={category} className="text-center p-3 sm:p-4 bg-gradient-to-br from-rose-50 to-pink-100 rounded-xl border border-rose-200 shadow-md transform transition-all duration-300 hover:scale-105">
+                        <div className="text-xs sm:text-sm font-medium text-rose-800 mb-1">{category}</div>
+                        <div className="text-sm sm:text-lg font-bold text-rose-600">{formatCurrency(amount)}</div>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <div className="text-center py-8">
-                    <PiggyBank className="h-12 w-12 mx-auto mb-4 text-pink-300" />
-                    <p className="text-gray-500">No hay gastos registrados para {selectedMonth}</p>
+                  <div className="text-center py-6 sm:py-8">
+                    <PiggyBank className="h-8 w-8 sm:h-12 sm:w-12 mx-auto mb-4 text-pink-300" />
+                    <p className="text-gray-500 text-sm sm:text-base">No hay gastos registrados para {selectedMonth}</p>
                   </div>
                 )}
               </CardContent>
             </Card>
 
-
-            
-
-            {/* Recent expenses */}
-            
-            
-            
-            
-            
-            
+            {/* Recent expenses - Responsive */}
             <Card className="bg-gradient-to-br from-white to-pink-50 border-pink-200 shadow-lg">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-pink-800">
-                  <TrendingUp className="h-5 w-5" />
+                <CardTitle className="flex items-center gap-2 text-pink-800 text-lg sm:text-xl">
+                  <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5" />
                   Gastos Recientes de {selectedMonth}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 {expenses.filter(expense => expense.month === selectedMonth).length > 0 ? (
-                  <div className="space-y-3">
+                  <div className="space-y-2 sm:space-y-3">
                     {expenses
                       .filter(expense => expense.month === selectedMonth)
                       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
                       .slice(0, 5)
                       .map((expense) => (
-                        <div key={expense.id} className="flex justify-between items-center p-4 bg-gradient-to-r from-pink-50 to-rose-50 rounded-xl border border-pink-200 shadow-sm transform transition-all duration-300 hover:shadow-md hover:scale-[1.02]">
-                          <div className="flex items-center gap-3">
-                            <Badge variant="secondary" className="bg-pink-200 text-pink-800 border-pink-300">
+                        <div key={expense.id} className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-3 sm:p-4 bg-gradient-to-r from-pink-50 to-rose-50 rounded-xl border border-pink-200 shadow-sm transform transition-all duration-300 hover:shadow-md hover:scale-[1.02] gap-2 sm:gap-3">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <Badge variant="secondary" className="bg-pink-200 text-pink-800 border-pink-300 text-xs">
                               {expense.category}
                             </Badge>
-                            <span className="font-medium text-gray-800">{expense.name}</span>
-                            <span className="text-sm text-gray-500 bg-white/50 px-2 py-1 rounded-full">
+                            <span className="font-medium text-gray-800 text-sm sm:text-base">{expense.name}</span>
+                            <span className="text-xs text-gray-500 bg-white/50 px-2 py-1 rounded-full">
                               {expense.date}
                             </span>
                           </div>
-                          <div className="flex items-center gap-3">
-                            <span className="font-bold text-rose-600">{formatCurrency(expense.amount)}</span>
+                          <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-between sm:justify-end">
+                            <span className="font-bold text-rose-600 text-sm sm:text-base">{formatCurrency(expense.amount)}</span>
                             <Button
                               onClick={() => deleteExpense(expense.id)}
                               variant="destructive"
                               size="sm"
-                              className="bg-rose-500 hover:bg-rose-600 shadow-sm"
+                              className="bg-rose-500 hover:bg-rose-600 shadow-sm text-xs"
                             >
                               Eliminar
                             </Button>
@@ -392,23 +275,16 @@ const Index = () => {
                       ))}
                   </div>
                 ) : (
-                  <div className="text-center py-8">
-                    <Wallet className="h-12 w-12 mx-auto mb-4 text-pink-300" />
-                    <p className="text-gray-500">No hay gastos registrados para {selectedMonth}</p>
+                  <div className="text-center py-6 sm:py-8">
+                    <Wallet className="h-8 w-8 sm:h-12 sm:w-12 mx-auto mb-4 text-pink-300" />
+                    <p className="text-gray-500 text-sm sm:text-base">No hay gastos registrados para {selectedMonth}</p>
                   </div>
                 )}
               </CardContent>
             </Card>
           </TabsContent>
-            
-            
-            
-            
-            
-            {/* Fixed*/}
-          
-          
-          
+
+          {/* Fixed*/}
           
           
           
