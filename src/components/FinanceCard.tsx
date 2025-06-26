@@ -27,26 +27,26 @@ export const FinanceCard = ({
   const getVariantStyles = () => {
     switch (variant) {
       case 'income':
-        return 'border-pink-200 bg-gradient-to-br from-pink-50 to-rose-50 text-pink-800 shadow-lg shadow-pink-100/50';
+        return 'border-pink´-200 bg-gradient-to-br from-green-50 to-green-50 text-pink-green shadow-lg shadow-green-100/50';
       case 'expense':
         return 'border-rose-200 bg-gradient-to-br from-rose-50 to-pink-50 text-rose-800 shadow-lg shadow-rose-100/50';
       case 'savings':
         return 'border-fuchsia-200 bg-gradient-to-br from-fuchsia-50 to-pink-50 text-fuchsia-800 shadow-lg shadow-fuchsia-100/50';
       default:
-        return 'border-pink-200 bg-gradient-to-br from-white to-pink-50 text-gray-800 shadow-lg shadow-pink-100/50';
+        return 'border-blue-200 bg-gradient-to-br from-white to-blue-50 text-gray-800 shadow-lg shadow-blue-100/50';
     }
   };
 
   const getAmountColor = () => {
     switch (variant) {
       case 'income':
-        return 'text-pink-600';
+        return 'text-green-600';
       case 'expense':
         return 'text-rose-600';
       case 'savings':
         return 'text-fuchsia-600';
       default:
-        return amount >= 0 ? 'text-pink-600' : 'text-rose-600';
+        return amount >= 0 ? 'text-blue-600' : 'text-red-600';
     }
   };
 
@@ -58,7 +58,6 @@ export const FinanceCard = ({
     )}>
       <CardHeader className="pb-2">
         <CardTitle className="text-sm font-medium flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-pink-400 animate-pulse"></span>
           {title}
         </CardTitle>
       </CardHeader>

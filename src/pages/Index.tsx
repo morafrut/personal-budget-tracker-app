@@ -5,9 +5,8 @@ import { FinanceCard } from '@/components/FinanceCard';
 import { AddExpenseDialog } from '@/components/AddExpenseDialog';
 import { AddIncomeDialog } from '@/components/AddIncomeDialog';
 import { AddSavingsGoalDialog } from '@/components/AddSavingsGoalDialog';
-import { EditExpenseDialog } from '@/components/EditExpenseDialog';
 import { EditItemDialog } from '@/components/EditItemDialog';
-import { EditIncomeDialog } from '@/components/EditIncomeDialog';
+import { EditSavingsGoalDialog } from '@/components/EditSavingsGoalDialog';
 import { SavingsGoalCard } from '@/components/SavingsGoalCard';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -343,6 +342,7 @@ const Index = () => {
                             {income.description && <div className="text-sm text-green-600">{income.description}</div>}
                           </div>
                           <div className="flex items-center gap-3">
+
                             <span className="font-bold text-green-600">{formatCurrency(income.amount)}</span>
                             <Button
                               onClick={() => deleteFixedIncome(income.id)}
@@ -418,6 +418,7 @@ const Index = () => {
                               Eliminar
                             </Button>
                             <EditItemDialog item={expense} onUpdate={updateFixedExpense} />
+                            <span className="font-bold text-rose-600">{formatCurrency(expense.amount)}</span>
                           </div>
                         </div>
                       ))}
@@ -529,7 +530,7 @@ const Index = () => {
                             >
                               Eliminar
                             </Button>
-                            <EditIncomeDialog income={income} onUpdate={updateMonthlyIncome} />
+                            <EditItemDialog item={income} onUpdate={updateMonthlyIncome} />
                           </div>
                         </div>
                       ))}

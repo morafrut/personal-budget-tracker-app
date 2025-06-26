@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { SavingsGoal } from "@/types/finance";
 import { PiggyBank } from "lucide-react";
+import { EditSavingsGoalDialog } from "./EditSavingsGoalDialog";
 
 interface SavingsGoalCardProps {
   goal: SavingsGoal;
@@ -93,6 +94,7 @@ export const SavingsGoalCard = ({ goal, onUpdateGoal, onDeleteGoal }: SavingsGoa
         >
           Eliminar Meta
         </Button>
+        <EditSavingsGoalDialog SavingsGoal={goal} onUpdateSaving={onUpdateGoal} />
       </CardContent>
     </Card>
   );
