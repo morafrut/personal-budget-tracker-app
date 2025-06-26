@@ -185,31 +185,32 @@ const Index = () => {
           />
         </div>
 
-        {/* Tabs - More compact on mobile */}
+        {/* Tabs - More compact on mobile with all tabs visible */}
         <div className="px-1 sm:px-0">
           <Tabs defaultValue="dashboard" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 sm:grid-cols-5 bg-gradient-to-r from-pink-100 to-rose-100 border-pink-200 shadow-lg h-9">
-              <TabsTrigger value="dashboard" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800 px-1 py-1 text-xs">
-                <TrendingUp className="h-3 w-3 mr-1" />
-                <span className="hidden sm:inline">Dashboard</span>
-                <span className="sm:hidden">Dash</span>
-              </TabsTrigger>
-              <TabsTrigger value="fixed" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800 px-1 py-1 text-xs">
-                <Wallet className="h-3 w-3 mr-1" />
-                Fijos
-              </TabsTrigger>
-              <TabsTrigger value="expenses" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800 px-1 py-1 text-xs">
-                <span className="hidden sm:inline">💸 Gastos</span>
-                <span className="sm:hidden">💸</span>
-              </TabsTrigger>
-              <TabsTrigger value="incomes" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800 px-1 py-1 text-xs hidden sm:flex">
-                💰 Ingresos
-              </TabsTrigger>
-              <TabsTrigger value="savings" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800 px-1 py-1 text-xs hidden sm:flex">
-                <PiggyBank className="h-3 w-3 mr-1" />
-                Ahorros
-              </TabsTrigger>
-            </TabsList>
+            <div className="overflow-x-auto">
+              <TabsList className="grid w-full grid-cols-2 sm:grid-cols-5 bg-gradient-to-r from-pink-100 to-rose-100 border-pink-200 shadow-lg h-9 min-w-max">
+                <TabsTrigger value="dashboard" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800 px-2 py-1 text-xs whitespace-nowrap">
+                  <TrendingUp className="h-3 w-3 mr-1" />
+                  <span className="hidden sm:inline">Dashboard</span>
+                  <span className="sm:hidden">Dash</span>
+                </TabsTrigger>
+                <TabsTrigger value="fixed" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800 px-2 py-1 text-xs whitespace-nowrap">
+                  <Wallet className="h-3 w-3 mr-1" />
+                  Fijos
+                </TabsTrigger>
+                <TabsTrigger value="expenses" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800 px-2 py-1 text-xs whitespace-nowrap">
+                  💸 Gastos
+                </TabsTrigger>
+                <TabsTrigger value="incomes" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800 px-2 py-1 text-xs whitespace-nowrap">
+                  💰 Ingresos
+                </TabsTrigger>
+                <TabsTrigger value="savings" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800 px-2 py-1 text-xs whitespace-nowrap">
+                  <PiggyBank className="h-3 w-3 mr-1" />
+                  Ahorros
+                </TabsTrigger>
+              </TabsList>
+            </div>
 
             {/* Dashboard Content */}
             <TabsContent value="dashboard" className="space-y-3 mt-3">
@@ -431,9 +432,9 @@ const Index = () => {
 
             {/* Expenses */}
             <TabsContent value="expenses" className="space-y-6">
-              <div className="flex justify-between items-center">
-                <h2 className="text-2xl font-bold text-pink-700 flex items-center gap-2">
-                  <Sparkles className="h-6 w-6" />
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-pink-700 flex items-center gap-2">
+                  <Sparkles className="h-5 w-5 sm:h-6 sm:w-6" />
                   Gastos Variables
                 </h2>
                 <AddExpenseDialog onAddExpense={addExpense} />
@@ -441,8 +442,8 @@ const Index = () => {
               
               <Card className="bg-gradient-to-br from-white to-pink-50 border-pink-200 shadow-lg">
                 <CardHeader>
-                  <CardTitle className="text-pink-800 flex items-center gap-2">
-                    <TrendingUp className="h-5 w-5" />
+                  <CardTitle className="text-pink-800 flex items-center gap-2 text-base sm:text-lg">
+                    <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5" />
                     Todos los Gastos
                   </CardTitle>
                 </CardHeader>
@@ -452,26 +453,26 @@ const Index = () => {
                       {expenses
                         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
                         .map((expense) => (
-                          <div key={expense.id} className="flex justify-between items-center p-4 bg-gradient-to-r from-pink-50 to-rose-50 rounded-xl border border-pink-200 shadow-sm">
-                            <div className="flex items-center gap-3">
-                              <Badge variant="secondary" className="bg-pink-200 text-pink-800 border-pink-300">
+                          <div key={expense.id} className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 p-4 bg-gradient-to-r from-pink-50 to-rose-50 rounded-xl border border-pink-200 shadow-sm">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <Badge variant="secondary" className="bg-pink-200 text-pink-800 border-pink-300 text-xs">
                                 {expense.category}
                               </Badge>
-                              <span className="font-medium text-gray-800">{expense.name}</span>
-                              <Badge variant="outline" className="bg-white/50 border-pink-200 text-gray-600">
+                              <span className="font-medium text-gray-800 text-sm">{expense.name}</span>
+                              <Badge variant="outline" className="bg-white/50 border-pink-200 text-gray-600 text-xs">
                                 {expense.month}
                               </Badge>
-                              <span className="text-sm text-gray-500 bg-white/50 px-2 py-1 rounded-full">
+                              <span className="text-xs text-gray-500 bg-white/50 px-2 py-1 rounded-full">
                                 {expense.date}
                               </span>
                             </div>
-                            <div className="flex items-center gap-3">
-                              <span className="font-bold text-rose-600">{formatCurrency(expense.amount)}</span>
+                            <div className="flex items-center gap-2">
+                              <span className="font-bold text-rose-600 text-sm">{formatCurrency(expense.amount)}</span>
                               <Button
                                 onClick={() => deleteExpense(expense.id)}
                                 variant="destructive"
                                 size="sm"
-                                className="bg-rose-500 hover:bg-rose-600 shadow-sm"
+                                className="bg-rose-500 hover:bg-rose-600 shadow-sm text-xs h-8 px-3"
                               >
                                 Eliminar
                               </Button>
@@ -492,9 +493,9 @@ const Index = () => {
 
             {/* Incomes */}
             <TabsContent value="incomes" className="space-y-6">
-              <div className="flex justify-between items-center">
-                <h2 className="text-2xl font-bold text-green-700 flex items-center gap-2">
-                  <Sparkles className="h-6 w-6" />
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-green-700 flex items-center gap-2">
+                  <Sparkles className="h-5 w-5 sm:h-6 sm:w-6" />
                   Ingresos por Mes
                 </h2>
                 <AddIncomeDialog onAddIncome={addMonthlyIncome} />
@@ -502,8 +503,8 @@ const Index = () => {
               
               <Card className="bg-gradient-to-br from-white to-pink-50 border-pink-200 shadow-lg">
                 <CardHeader>
-                  <CardTitle className="text-green-800 flex items-center gap-2">
-                    <TrendingUp className="h-5 w-5" />
+                  <CardTitle className="text-green-800 flex items-center gap-2 text-base sm:text-lg">
+                    <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5" />
                     Ingresos Variables por Mes
                   </CardTitle>
                 </CardHeader>
@@ -511,20 +512,20 @@ const Index = () => {
                   {monthlyIncomes.length > 0 ? (
                     <div className="space-y-3">
                       {monthlyIncomes.map((income) => (
-                        <div key={income.id} className="flex justify-between items-center p-4 bg-gradient-to-r from-green-50 to-lime-50 rounded-xl border border-green-200 shadow-sm">
-                          <div className="flex items-center gap-3">
-                            <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
+                        <div key={income.id} className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 p-4 bg-gradient-to-r from-green-50 to-lime-50 rounded-xl border border-green-200 shadow-sm">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200 text-xs">
                               {income.month}
                             </Badge>
-                            <span className="font-medium text-gray-800">{income.description || 'Ingreso'}</span>
+                            <span className="font-medium text-gray-800 text-sm">{income.description || 'Ingreso'}</span>
                           </div>
-                          <div className="flex items-center gap-3">
-                            <span className="font-bold text-green-600">{formatCurrency(income.amount)}</span>
+                          <div className="flex items-center gap-2">
+                            <span className="font-bold text-green-600 text-sm">{formatCurrency(income.amount)}</span>
                             <Button
                               onClick={() => deleteMonthlyIncome(income.id)}
                               variant="destructive"
                               size="sm"
-                              className="bg-rose-500 hover:bg-rose-400 shadow-sm"
+                              className="bg-rose-500 hover:bg-rose-400 shadow-sm text-xs h-8 px-3"
                             >
                               Eliminar
                             </Button>
@@ -545,16 +546,16 @@ const Index = () => {
 
             {/* Savings */}
             <TabsContent value="savings" className="space-y-6">
-              <div className="flex justify-between items-center">
-                <h2 className="text-2xl font-bold text-fuchsia-700 flex items-center gap-2">
-                  <Sparkles className="h-6 w-6" />
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-fuchsia-700 flex items-center gap-2">
+                  <Sparkles className="h-5 w-5 sm:h-6 sm:w-6" />
                   Metas de Ahorro
                 </h2>
                 <AddSavingsGoalDialog onAddGoal={addSavingsGoal} />
               </div>
               
               {savingsGoals.length > 0 ? (
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {savingsGoals.map((goal) => (
                     <SavingsGoalCard
                       key={goal.id}
