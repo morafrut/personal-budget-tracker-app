@@ -87,23 +87,74 @@
     @apply bg-background text-foreground;
   }
 
-  /* Prevent horizontal scroll on mobile */
-  html, body {
+  /* Mobile-first responsive design */
+  html {
     overflow-x: hidden;
-    max-width: 100%;
+    -webkit-text-size-adjust: 100%;
   }
 
-  /* Ensure mobile viewport is properly handled */
+  body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-size: 14px;
+  }
+
+  /* Mobile optimizations */
   @media (max-width: 640px) {
+    body {
+      font-size: 13px;
+    }
+    
     .container {
-      padding-left: 1rem;
-      padding-right: 1rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
     }
     
     /* Prevent text from breaking layout */
     * {
       word-wrap: break-word;
       overflow-wrap: break-word;
+      box-sizing: border-box;
+    }
+    
+    /* Ensure no horizontal scroll */
+    .grid {
+      width: 100%;
+    }
+    
+    /* Mobile card optimizations */
+    .card-hover:hover {
+      transform: none;
+    }
+    
+    /* Better touch targets */
+    button {
+      min-height: 32px;
+      touch-action: manipulation;
+    }
+    
+    /* Mobile typography */
+    h1 {
+      line-height: 1.2;
+    }
+    
+    /* Tighter spacing on mobile */
+    .space-y-6 > * + * {
+      margin-top: 0.5rem;
+    }
+  }
+
+  /* Tablet adjustments */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    body {
+      font-size: 15px;
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 1025px) {
+    body {
+      font-size: 16px;
     }
   }
 }
@@ -112,7 +163,7 @@
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -194,19 +245,34 @@
   background: rgb(219, 39, 119);
 }
 
-/* Mobile optimizations */
+/* Mobile specific improvements */
 @media (max-width: 640px) {
+  /* Remove hover effects on mobile */
   .card-hover:hover {
     transform: none;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   }
   
-  /* Smaller touch targets for mobile */
-  button {
-    min-height: 44px;
+  /* Improve tap targets */
+  button, .cursor-pointer {
+    touch-action: manipulation;
   }
   
-  /* Better spacing for mobile */
+  /* Prevent zoom on input focus */
+  input, select, textarea {
+    font-size: 16px;
+  }
+  
+  /* Compact spacing */
   .space-y-6 > * + * {
-    margin-top: 1rem;
+    margin-top: 0.75rem;
+  }
+  
+  .space-y-4 > * + * {
+    margin-top: 0.5rem;
+  }
+  
+  .space-y-3 > * + * {
+    margin-top: 0.375rem;
   }
 }
