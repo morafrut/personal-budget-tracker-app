@@ -53,7 +53,7 @@ export const EditItemDialog = <T extends EditableItem>({ item, onUpdate }: EditI
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button size="sm" className="bg-blue-600 hover:bg-blue-700 shadow-sm">
+        <Button size="sm" className="bg-blue-600 hover:bg-blue-700 shadow-sm text-xs h-8 px-3">
           <Pencil className="h-4 w-4 mr-1" /> Editar
         </Button>
       </DialogTrigger>

@@ -28,6 +28,7 @@ export const SavingsGoalCard = ({ goal, onUpdateGoal, onDeleteGoal }: SavingsGoa
   };
 
   const handleAddMoney = () => {
+    
     const amount = parseFloat(addAmount);
     if (amount > 0) {
       onUpdateGoal(goal.id, {

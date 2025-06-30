@@ -188,7 +188,14 @@ const Index = () => {
         <div className="px-1 sm:px-0">
           <Tabs defaultValue="dashboard" className="w-full">
             <div className="overflow-x-auto">
-              <TabsList className="grid w-full grid-cols-2 sm:grid-cols-5 bg-gradient-to-r from-pink-100 to-rose-100 border-pink-200 shadow-lg h-9 min-w-max">
+              <TabsList className="    grid w-full grid-cols-2 sm:grid-cols-5
+    bg-gradient-to-r from-pink-100 to-rose-100
+    border-pink-200 shadow-lg
+    py-2    /* + padding arriba/abajo en móvil */
+    sm:py-0 /* menos padding en pantallas ≥640px */
+    h-20      /* 64px de alto en móvil */
+    sm:h-9 
+    min-w-max">
                 <TabsTrigger value="dashboard" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800 px-2 py-1 text-xs whitespace-nowrap">
                   <TrendingUp className="h-3 w-3 mr-1" />
                   <span className="hidden sm:inline">Dashboard</span>
@@ -452,6 +459,7 @@ const Index = () => {
                   {expenses.length > 0 ? (
                     <div className="space-y-3">
                       {expenses
+                        .filter(expense => expense.month === selectedMonth)
                         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
                         .map((expense) => (
                           <div key={expense.id} className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 p-4 bg-gradient-to-r from-pink-50 to-rose-50 rounded-xl border border-pink-200 shadow-sm">
@@ -512,7 +520,9 @@ const Index = () => {
                 <CardContent>
                   {monthlyIncomes.length > 0 ? (
                     <div className="space-y-3">
-                      {monthlyIncomes.map((income) => (
+                      {monthlyIncomes
+                      .filter(income => income.month === selectedMonth)
+                      .map((income) => (
                         <div key={income.id} className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 p-4 bg-gradient-to-r from-green-50 to-lime-50 rounded-xl border border-green-200 shadow-sm">
                           <div className="flex flex-wrap items-center gap-2">
                             <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200 text-xs">

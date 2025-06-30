@@ -62,7 +62,7 @@ export const FinanceCard = ({
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className={cn("text-2xl font-bold animate-fade-in", getAmountColor())}>
+        <div className={cn(" text-base sm:text-2xl font-bold animate-fade-in", getAmountColor())}>
           {formatCurrency(amount)}
         </div>
         {subtitle && (
