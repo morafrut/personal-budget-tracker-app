@@ -188,14 +188,7 @@ const Index = () => {
         <div className="px-1 sm:px-0">
           <Tabs defaultValue="dashboard" className="w-full">
             <div className="overflow-x-auto">
-              <TabsList className="    grid w-full grid-cols-2 sm:grid-cols-5
-    bg-gradient-to-r from-pink-100 to-rose-100
-    border-pink-200 shadow-lg
-    py-2    /* + padding arriba/abajo en móvil */
-    sm:py-0 /* menos padding en pantallas ≥640px */
-    h-20      /* 64px de alto en móvil */
-    sm:h-9 
-    min-w-max">
+              <TabsList className="    grid w-full grid-cols-2 sm:grid-cols-5 bg-gradient-to-r from-pink-100 to-rose-100 border-pink-200 shadow-lg py-2 sm:py-0  h-20       sm:h-9  min-w-max">
                 <TabsTrigger value="dashboard" className="data-[state=active]:bg-pink-200 data-[state=active]:text-pink-800 px-2 py-1 text-xs whitespace-nowrap">
                   <TrendingUp className="h-3 w-3 mr-1" />
                   <span className="hidden sm:inline">Dashboard</span>
@@ -302,10 +295,10 @@ const Index = () => {
             </TabsContent>
 
             {/* Fixed Incomes and Expenses */}
-            <TabsContent value="fixed" className="space-y-6">
+            <TabsContent value="fixed" className="space-y-6 mt-3">
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Fixed Incomes */}
-                <Card className="bg-gradient-to-br from-white to-pink-50 border-pink-200 shadow-lg">
+                <Card className="w-full bg-gradient-to-br from-white to-pink-50 border-pink-200 shadow-lg">
                   <CardHeader>
                     <CardTitle className="text-green-700 flex items-center gap-2">
                       <DollarSign className="h-5 w-5" />
@@ -343,7 +336,16 @@ const Index = () => {
                     
                     <div className="space-y-2">
                       {fixedIncomes.map((income) => (
-                        <div key={income.id} className="flex justify-between items-center p-4 bg-gradient-to-r from-green-50 to-lime-50 rounded-xl border border-green-200 shadow-sm">
+                        <div key={income.id}
+                        className="
+                          flex flex-col sm:flex-row
+                          justify-between
+                          items-start sm:items-center
+                          p-4
+                          bg-gradient-to-r from-green-50 to-lime-50
+                          rounded-xl border border-green-200 shadow-sm
+                          space-y-2 sm:space-y-0
+                        ">
                           <div>
                             <div className="font-medium text-green-800">{income.name}</div>
                             {income.description && <div className="text-sm text-green-600">{income.description}</div>}
@@ -371,7 +373,7 @@ const Index = () => {
                 </Card>
 
                 {/* Fixed Expenses */}
-                <Card className="bg-gradient-to-br from-white to-pink-50 border-pink-200 shadow-lg">
+                <Card className="bg-gradient-to-br from-white to-pink-50 border-pink-200 shadow-lg ">
                   <CardHeader>
                     <CardTitle className="text-red-700 flex items-center gap-2">
                       <DollarSign className="h-5 w-5" />
@@ -425,7 +427,6 @@ const Index = () => {
                               Eliminar
                             </Button>
                             <EditItemDialog item={expense} onUpdate={updateFixedExpense} />
-                            <span className="font-bold text-rose-600">{formatCurrency(expense.amount)}</span>
                           </div>
                         </div>
                       ))}
