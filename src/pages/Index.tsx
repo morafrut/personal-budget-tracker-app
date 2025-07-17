@@ -110,18 +110,18 @@ const Index = () => {
         <div className="text-center space-y-2 sm:space-y-4 animate-fade-in px-2">
           <div className="flex flex-col items-center justify-center gap-2 sm:gap-3">
             <Avatar className="h-12 w-12 sm:h-20 sm:w-20 lg:h-32 lg:w-32 border-2 border-pink-200 shadow-lg">
-              <AvatarImage src="/images/foto1.jpg" />
+              <AvatarImage src="/images/cuys.jpg" />
               <AvatarFallback className="bg-gradient-to-br from-pink-200 to-rose-200 text-pink-700">
                 <Heart className="h-3 w-3 sm:h-5 sm:w-5 lg:h-8 lg:w-8" />
               </AvatarFallback>
             </Avatar>
             <div className="text-center">
               <h1 className="text-lg sm:text-xl lg:text-4xl font-bold bg-gradient-to-r from-pink-600 via-rose-600 to-fuchsia-600 bg-clip-text text-transparent leading-tight">
-                Gestor de finanzas para Valen  
+                Gestor de finanzas para las cuys  
               </h1>
               <div className="flex items-center justify-center gap-1 sm:gap-2 mt-1">
                 <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-pink-500 animate-pulse" />
-                <p className="text-xs sm:text-sm text-gray-600">Pookie Bear edition</p>
+                <p className="text-xs sm:text-sm text-gray-600">cuys edition</p>
                 <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-pink-500 animate-pulse" />
               </div>
             </div>
