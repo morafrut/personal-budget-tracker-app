@@ -117,11 +117,11 @@ const Index = () => {
             </Avatar>
             <div className="text-center">
               <h1 className="text-lg sm:text-xl lg:text-4xl font-bold bg-gradient-to-r from-pink-600 via-rose-600 to-fuchsia-600 bg-clip-text text-transparent leading-tight">
-                Gestor de finanzas para las cuys  
+                Gestor de finanzas 
               </h1>
               <div className="flex items-center justify-center gap-1 sm:gap-2 mt-1">
                 <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-pink-500 animate-pulse" />
-                <p className="text-xs sm:text-sm text-gray-600">cuys edition</p>
+                <p className="text-xs sm:text-sm text-gray-600">tus finanzas pero coquette</p>
                 <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-pink-500 animate-pulse" />
               </div>
             </div>
